@@ -1,4 +1,4 @@
-import { Inter } from "next/font/google";
+import { Inter, Vidaloka } from "next/font/google";
 import "./globals.css";
 import Head from "next/head";
 
@@ -6,12 +6,15 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Agorar",
-  description: "Agorar: tu guía instantánea para seguir el estado de los artículos del mega DNU y la Ley Omnibus",
+  description: "Agorar: tu guía instantánea para seguir el estado de las temáticas del mega DNU y la Ley Ómnibus",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/Icon.png" type="image/png"/>
+      </head>
       <Head>
         {/* Google Analytics Tracking Code */}
         <script

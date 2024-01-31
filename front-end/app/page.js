@@ -2,6 +2,9 @@
 import React, { useEffect, useState, useRef } from "react";
 import Article from "./components/article";
 import Chart from "chart.js/auto";
+import { Vidaloka } from "next/font/google";
+
+const vidaloka = Vidaloka({ subsets: ["latin"], weight: '400', variable: '--font-vidaloka'});
 
 export default function Home() {
   const [articles, setArticles] = useState([]);
@@ -145,7 +148,7 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col bg-[#F3F6F9]">
       <div className="flex flex-row px-8 py-4 justify-center">
-        <span className="text-[#38485C] text-3xl font-bold">Agorar</span>
+        <span className={`${vidaloka.variable} font-mono text-white text-4xl bg-[#38485C] px-2 py-1`}>Agorar</span>
       </div>
       <div className="flex flex-row justify-center">
         <div className="flex flex-col gap-4 mt-4">
