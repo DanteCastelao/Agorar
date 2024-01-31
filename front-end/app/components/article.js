@@ -20,14 +20,21 @@ function Article({ title, description, status }) {
   const borderColor = borderColors[status] || '#DF7474';
   const textColor = textColors[status] || '#DF7474';
 
+  // Calculate title font size based on description presence
+  const titleClamp = description ? '3' : '5';
+
   return (
     <div className="flex flex-col bg-white p-[1.4rem] gap-4 border-[2px] rounded-[5px]" style={{ borderColor: borderColor, height: '30vh' }}>
-      <span className="font-bold line-clamp-3" style={{ color: textColor, fontSize: '1.35rem' }}>{title}</span>
-      <span className="font-medium text-[#38485C] text-[0.95rem] overflow-hidden">
-        <span className="line-clamp-2 md:line-clamp-6 ">
-          {description}
-        </span>
+      <span className={`font-bold text-[1.35rem] ${description ? 'line-clamp-2 md:line-clamp-3' : 'line-clamp-5 md:line-clamp-5'}`} style={{ color: textColor }}>
+        {title}
       </span>
+      {description && (
+        <span className="font-medium text-[#38485C] text-[0.95rem] overflow-hidden">
+          <span className="line-clamp-2 md:line-clamp-6 ">
+            {description}
+          </span>
+        </span>
+      )}
       {/* <span className="font-medium text-[#38485C] text-[0.95rem] underline">Leer más</span> */}
     </div>
   );
