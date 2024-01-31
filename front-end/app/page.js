@@ -167,7 +167,7 @@ export default function Home() {
           onChange={handleSearchInputChange}
         />
       </div>
-      <div className="grid grid-cols-4 gap-5 mx-[10%] my-8">
+      <div className="grid grid-cols-1 gap-5 mx-[10%] my-8 md:grid-cols-4 sm:grid-cols-2">
         {filteredArticles.map((article, index) => (
           <Article
             key={index}

@@ -22,13 +22,13 @@ function Article({ title, description, status }) {
 
   return (
     <div className="flex flex-col bg-white p-[1.4rem] gap-4 border-[2px] rounded-[5px]" style={{ borderColor: borderColor, height: '30vh' }}>
-      <span className="font-bold" style={{ color: textColor, fontSize: '1.35rem' }}>{title}</span>
+      <span className="font-bold line-clamp-3" style={{ color: textColor, fontSize: '1.35rem' }}>{title}</span>
       <span className="font-medium text-[#38485C] text-[0.95rem] overflow-hidden">
-        <span className="line-clamp-6">
+        <span className="line-clamp-2 md:line-clamp-6 ">
           {description}
         </span>
       </span>
-      <span className="font-medium text-[#38485C] text-[0.95rem] underline">Leer más</span>
+      {/* <span className="font-medium text-[#38485C] text-[0.95rem] underline">Leer más</span> */}
     </div>
   );
 }
