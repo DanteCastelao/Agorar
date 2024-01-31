@@ -58,7 +58,7 @@ export default function Home() {
       data: {
         labels: ['No Vigente', 'Vigente', 'En discusión'],
         datasets: [{
-          label: 'Articulos del DNU',
+          label: 'Temáticas del DNU',
           data: [
             countArticlesByStatusAndCategory('No Vigente', 'dnu'),
             countArticlesByStatusAndCategory('Vigente', 'dnu'),
@@ -162,7 +162,7 @@ export default function Home() {
         <input
           className="flex flex-grow rounded-[5px] p-4 py-2 placeholder-[#838383] text-[#38485C] font-medium focus:outline-none"
           type="text"
-          placeholder="Buscar artículo"
+          placeholder="Buscar temática"
           value={searchQuery}
           onChange={handleSearchInputChange}
         />
