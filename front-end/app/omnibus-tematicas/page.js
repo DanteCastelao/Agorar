@@ -137,7 +137,7 @@ export default function Home() {
           <p className="text-center text-[#38485C] text-[1.5rem] font-bold">OMNIBUS</p>
         </div>
       </div>
-      <span className="text-[#38485C] font-medium text-center text-[0.95rem] my-8">Ultima vez actualizado: 31/1/2024 9:19 a.m.</span>
+      <span className="text-[#38485C] font-medium text-center text-[0.95rem] my-8">Ultima vez actualizado: 31/1/2024 21:31 a.m.</span>
       <div className="flex flex-row bg-white rounded-[5px] mx-[10%] border-[2px] border-[#D9D9D9] my-4">
         <input
           className="flex flex-grow rounded-[5px] p-4 py-2 placeholder-[#838383] text-[#38485C] font-medium focus:outline-none"
