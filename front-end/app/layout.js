@@ -14,6 +14,8 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
       <link rel="icon" href="/Icon.png" type="image/png"/>
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5111428625414371"
+     crossorigin="anonymous"></script>
       </head>
       <body className={inter.className}>{children}</body>
       <GoogleAnalytics gaId="G-13RT3WTLD9" />
