@@ -3,7 +3,7 @@ import React, { useEffect, useState, useRef } from "react";
 import Article from "../components/article";
 import Chart from "chart.js/auto";
 import { Vidaloka } from "next/font/google";
-import WhatsappIcon from "../assets/WhatsappIcon.png"
+import WhatsappIcon from "../assets/WhatsAppIcon.png"
 import TwitterIcon from "../assets/TwitterIcon.png"
 import FacebookIcon from "../assets/FacebookIcon.png"
 
