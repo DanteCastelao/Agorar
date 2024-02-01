@@ -6,6 +6,7 @@ function Article({ title, description, status }) {
     'En discusión': '#838383',
     'Vigente': '#74ACDF',
     'No Vigente': '#DF7474',
+    'Modificada': '#838383'
     // Add more status-color mappings as needed
   };
 
@@ -13,6 +14,7 @@ function Article({ title, description, status }) {
     'En discusión': '#838383',
     'Vigente': '#74ACDF',
     'No Vigente': '#DF7474',
+    'Modificada': '#838383'
     // Add more status-color mappings as needed
   };
   

@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState, useRef } from "react";
-import Article from "./components/article";
+import Article from "../components/article";
 import Chart from "chart.js/auto";
 import { Vidaloka } from "next/font/google";
 
@@ -10,8 +10,7 @@ export default function Home() {
   const [articles, setArticles] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredArticles, setFilteredArticles] = useState([]);
-  const chartDNURef = useRef(null);
-  // const chartOmnibusRef = useRef(null);
+  const chartOmnibusRef = useRef(null);
 
   useEffect(() => {
     fetchArticles();
@@ -19,7 +18,7 @@ export default function Home() {
 
   useEffect(() => {
     if (articles.length > 0) {
-      if (!chartDNURef.current) {
+      if (!chartOmnibusRef.current) {
         renderCharts();
       }
       filterArticlesByCategory("use client");
@@ -38,7 +37,7 @@ export default function Home() {
       data.sort((a, b) => {
         if (a.status === 'No Vigente') {
           return -1;
-        } else if (a.status === 'En discusión' && b.status !== 'No Vigente') {
+        } else if (a.status === 'Modificada' && b.status !== 'No Vigente') {
           return -1;
         } else {
           return 0;
@@ -54,19 +53,18 @@ export default function Home() {
   
 
   const renderCharts = () => {
-    const ctxDNU = document.getElementById('chartDNU').getContext('2d');
-    // const ctxOmnibus = document.getElementById('chartOmnibus').getContext('2d');
+    const ctxOmnibus = document.getElementById('chartOmnibus').getContext('2d');
 
-    chartDNURef.current = new Chart(ctxDNU, {
+    chartOmnibusRef.current = new Chart(ctxOmnibus, {
       type: 'doughnut',
       data: {
-        labels: ['No Vigente', 'Vigente', 'En discusión'],
+        labels: ['No Vigente', 'Vigente', 'Modificada'],
         datasets: [{
-          label: 'Temáticas del DNU',
+          label: 'Articulos de la Ley Omnibus',
           data: [
-            countArticlesByStatusAndCategory('No Vigente', 'dnu'),
-            countArticlesByStatusAndCategory('Vigente', 'dnu'),
-            countArticlesByStatusAndCategory('En discusión', 'dnu')
+            countArticlesByStatusAndCategory('No Vigente', 'omnibus'),
+            countArticlesByStatusAndCategory('Vigente', 'omnibus'),
+            countArticlesByStatusAndCategory('Modificada', 'omnibus')
           ],
           backgroundColor: [
             '#DF7474',
@@ -84,7 +82,7 @@ export default function Home() {
       options: {
         onClick: (event, chartElement) => {
           if (chartElement.length > 0) {
-            const clickedLabel = chartDNURef.current.data.labels[chartElement[0].index];
+            const clickedLabel = chartOmnibusRef.current.data.labels[chartElement[0].index];
             filterArticlesByStatus(clickedLabel);
           }
         }
@@ -104,7 +102,7 @@ export default function Home() {
   const filterArticlesByCategory = (category) => {
     setSearchQuery("");
     setFilteredArticles(
-      articles.filter((article) => article.category === "dnu")
+      articles.filter((article) => article.category === "omnibus")
     );
   }
 
@@ -125,19 +123,15 @@ export default function Home() {
         <span className={`${vidaloka.variable} font-mono text-white text-4xl bg-[#38485C] px-2 py-1`}>Agorar</span>
       </div>
       <div className="flex flex-row justify-center text-[#8F8F8F] font-bold gap-6 ">
-        <a href="/omnibus-tematicas" className="hover:text-[#404040]">Ley Omnibus: Temáticas</a>
-        <a href="/" className="text-[#38485C]">DNU</a>
+        <a href="/omnibus-tematicas" className="text-[#38485C]">Ley Omnibus: Temáticas</a>
+        <a href="/" className="hover:text-[#404040]">DNU</a>
         <a href="/omnibus-diputados" className="hover:text-[#404040]">Ley Omnibus: Diputados</a>
       </div>
       <div className="flex flex-row justify-center">
-        <div className="flex flex-col gap-4 mt-4">
-          <canvas id="chartDNU"></canvas>
-          <p className="text-center text-[#38485C] text-[1.5rem] font-bold">DNU</p>
-        </div>
-        {/* <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4">
           <canvas id="chartOmnibus"></canvas>
           <p className="text-center text-[#38485C] text-[1.5rem] font-bold">OMNIBUS</p>
-        </div> */}
+        </div>
       </div>
       <span className="text-[#38485C] font-medium text-center text-[0.95rem] my-8">Ultima vez actualizado: 31/1/2024 9:19 a.m.</span>
       <div className="flex flex-row bg-white rounded-[5px] mx-[10%] border-[2px] border-[#D9D9D9] my-4">
