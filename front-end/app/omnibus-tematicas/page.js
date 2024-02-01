@@ -3,6 +3,9 @@ import React, { useEffect, useState, useRef } from "react";
 import Article from "../components/article";
 import Chart from "chart.js/auto";
 import { Vidaloka } from "next/font/google";
+import WhatsappIcon from "../assets/WhatsappIcon.png"
+import TwitterIcon from "../assets/TwitterIcon.png"
+import FacebookIcon from "../assets/FacebookIcon.png"
 
 const vidaloka = Vidaloka({ subsets: ["latin"], weight: '400', variable: '--font-vidaloka'});
 
