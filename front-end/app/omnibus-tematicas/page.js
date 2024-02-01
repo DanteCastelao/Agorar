@@ -21,7 +21,7 @@ export default function Home() {
       if (!chartOmnibusRef.current) {
         renderCharts();
       }
-      filterArticlesByCategory("use client");
+      filterArticlesByCategory("omnibus");
     }
   }, [articles]);
 
@@ -96,26 +96,30 @@ export default function Home() {
 
   const filterArticlesByStatus = (status) => {
     setSearchQuery('');
-    setFilteredArticles(articles.filter(article => article.status === status));
+    setFilteredArticles(articles.filter(article => article.status === status && article.category === "omnibus"));
   };
 
   const filterArticlesByCategory = (category) => {
     setSearchQuery("");
     setFilteredArticles(
-      articles.filter((article) => article.category === "omnibus")
+      articles.filter((article) => article.category === category)
     );
   }
 
   const handleSearchInputChange = (event) => {
-    setSearchQuery(event.target.value);
+    const searchQuery = event.target.value.trim().toLowerCase();
+    setSearchQuery(searchQuery);
+    const normalizedSearchQuery = searchQuery.normalize("NFD").replace(/[\u0300-\u036f]/g, ""); // Remove diacritics
     setFilteredArticles(articles.filter(article => {
-      if (event.target.value.trim() === "") {
-        return true;
+      if (normalizedSearchQuery === "") {
+        return article.category === "omnibus"; // Only consider articles of "omnibus" category when search query is empty
       } else {
-        return article.name.toLowerCase().includes(event.target.value.toLowerCase()) || article.description.toLowerCase().includes(event.target.value.toLowerCase());
+        const normalizedTitle = article.name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""); // Remove diacritics
+        const normalizedDescription = article.description.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""); // Remove diacritics
+        return (normalizedTitle.includes(normalizedSearchQuery) || normalizedDescription.includes(normalizedSearchQuery)) && article.category === "omnibus";
       }
     }));
-  };
+  };  
 
   return (
     <main className="flex min-h-screen flex-col bg-[#F3F6F9]">

@@ -11,7 +11,6 @@ export default function Home() {
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredArticles, setFilteredArticles] = useState([]);
   const chartDNURef = useRef(null);
-  // const chartOmnibusRef = useRef(null);
 
   useEffect(() => {
     fetchArticles();
@@ -22,7 +21,7 @@ export default function Home() {
       if (!chartDNURef.current) {
         renderCharts();
       }
-      filterArticlesByCategory("use client");
+      filterArticlesByCategory("dnu");
     }
   }, [articles]);
 
@@ -55,7 +54,6 @@ export default function Home() {
 
   const renderCharts = () => {
     const ctxDNU = document.getElementById('chartDNU').getContext('2d');
-    // const ctxOmnibus = document.getElementById('chartOmnibus').getContext('2d');
 
     chartDNURef.current = new Chart(ctxDNU, {
       type: 'doughnut',
@@ -98,26 +96,30 @@ export default function Home() {
 
   const filterArticlesByStatus = (status) => {
     setSearchQuery('');
-    setFilteredArticles(articles.filter(article => article.status === status));
+    setFilteredArticles(articles.filter(article => article.status === status && article.category === "dnu"));
   };
 
   const filterArticlesByCategory = (category) => {
     setSearchQuery("");
     setFilteredArticles(
-      articles.filter((article) => article.category === "dnu")
+      articles.filter((article) => article.category === category)
     );
   }
 
   const handleSearchInputChange = (event) => {
-    setSearchQuery(event.target.value);
+    const searchQuery = event.target.value.trim().toLowerCase();
+    setSearchQuery(searchQuery);
+    const normalizedSearchQuery = searchQuery.normalize("NFD").replace(/[\u0300-\u036f]/g, ""); // Remove diacritics
     setFilteredArticles(articles.filter(article => {
-      if (event.target.value.trim() === "") {
-        return true;
+      if (normalizedSearchQuery === "") {
+        return article.category === "dnu"; // Only consider articles of "dnu" category when search query is empty
       } else {
-        return article.name.toLowerCase().includes(event.target.value.toLowerCase()) || article.description.toLowerCase().includes(event.target.value.toLowerCase());
+        const normalizedTitle = article.name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""); // Remove diacritics
+        const normalizedDescription = article.description.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""); // Remove diacritics
+        return (normalizedTitle.includes(normalizedSearchQuery) || normalizedDescription.includes(normalizedSearchQuery)) && article.category === "dnu";
       }
     }));
-  };
+  };  
 
   return (
     <main className="flex min-h-screen flex-col bg-[#F3F6F9]">
@@ -134,10 +136,6 @@ export default function Home() {
           <canvas id="chartDNU"></canvas>
           <p className="text-center text-[#38485C] text-[1.5rem] font-bold">DNU</p>
         </div>
-        {/* <div className="flex flex-col gap-4">
-          <canvas id="chartOmnibus"></canvas>
-          <p className="text-center text-[#38485C] text-[1.5rem] font-bold">OMNIBUS</p>
-        </div> */}
       </div>
       <span className="text-[#38485C] font-medium text-center text-[0.95rem] my-8">Ultima vez actualizado: 31/1/2024 9:19 a.m.</span>
       <div className="flex flex-row bg-white rounded-[5px] mx-[10%] border-[2px] border-[#D9D9D9] my-4">
