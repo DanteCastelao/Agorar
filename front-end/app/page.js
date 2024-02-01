@@ -3,6 +3,10 @@ import React, { useEffect, useState, useRef } from "react";
 import Article from "./components/article";
 import Chart from "chart.js/auto";
 import { Vidaloka } from "next/font/google";
+import WhatsappIcon from "./assets/WhatsappIcon.png"
+import TwitterIcon from "./assets/TwitterIcon.png"
+import FacebookIcon from "./assets/FacebookIcon.png"
+
 
 const vidaloka = Vidaloka({ subsets: ["latin"], weight: '400', variable: '--font-vidaloka'});
 
@@ -126,10 +130,15 @@ export default function Home() {
       <div className="flex flex-row px-8 py-4 justify-center">
         <span className={`${vidaloka.variable} font-mono text-white text-4xl bg-[#38485C] px-2 py-1`}>Agorar</span>
       </div>
-      <div className="flex flex-row justify-center text-[#8F8F8F] font-bold gap-6 ">
+      <div className="flex flex-row justify-center text-[#8F8F8F] font-bold gap-6 text-center">
         <a href="/omnibus-tematicas" className="hover:text-[#404040]">Ley Omnibus: Temáticas</a>
         <a href="/" className="text-[#38485C]">DNU</a>
         <a href="/omnibus-diputados" className="hover:text-[#404040]">Ley Omnibus: Diputados</a>
+      </div>
+      <div className="flex flex-row justify-center gap-6  mt-4">
+        <a><img src={WhatsappIcon.src}></img></a>
+        <a><img src={TwitterIcon.src}></img></a>
+        <a><img src={FacebookIcon.src}></img></a>
       </div>
       <div className="flex flex-row justify-center">
         <div className="flex flex-col gap-4 mt-4">
