@@ -126,10 +126,21 @@ export default function Home() {
       <div className="flex flex-row px-8 py-4 justify-center">
         <span className={`${vidaloka.variable} font-mono text-white text-4xl bg-[#38485C] px-2 py-1`}>Agorar</span>
       </div>
-      <div className="flex flex-row justify-center text-[#8F8F8F] font-bold gap-6 ">
+      <div className="flex flex-row justify-center text-[#8F8F8F] font-bold gap-6 text-center">
         <a href="/omnibus-tematicas" className="text-[#38485C]">Ley Omnibus: Temáticas</a>
         <a href="/" className="hover:text-[#404040]">DNU</a>
         <a href="/omnibus-diputados" className="hover:text-[#404040]">Ley Omnibus: Diputados</a>
+      </div>
+      <div className="flex flex-row justify-center gap-6 mt-4">
+        <a href={`whatsapp://send?text=Estado%20de%20las%20temáticas%20del%20mega%20DNU%20y%20la%20Ley%20Ómnibus%20-%20${window.location.href}`} target="_blank" rel="noopener noreferrer">
+          <img src={WhatsappIcon.src} alt="Compartir en WhatsApp" />
+        </a>
+        <a href={`https://twitter.com/intent/tweet?url=${window.location.href}&text=Estado%20de%20las%20temáticas%20del%20mega%20DNU%20y%20la%20Ley%20Ómnibus`} target="_blank" rel="noopener noreferrer">
+          <img src={TwitterIcon.src} alt="Compartir en Twitter" />
+        </a>
+        <a href={`https://www.facebook.com/sharer/sharer.php?u=${window.location.href}&quote=Estado%20de%20las%20temáticas%20del%20mega%20DNU%20y%20la%20Ley%20Ómnibus`} target="_blank" rel="noopener noreferrer">
+          <img src={FacebookIcon.src} alt="Compartir en Facebook" />
+        </a>
       </div>
       <div className="flex flex-row justify-center">
         <div className="flex flex-col gap-4">
