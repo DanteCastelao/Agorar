@@ -137,7 +137,7 @@ export default function Home() {
       <div className="flex flex-row justify-center text-[#8F8F8F] font-bold gap-6 text-center">
         <a href="/omnibus-tematicas" className="text-[#38485C]">Ley Omnibus: Temáticas</a>
         <a href="/" className="hover:text-[#404040]">DNU</a>
-        <a href="/omnibus-diputados" className="hover:text-[#404040]">Ley Omnibus: Diputados</a>
+        <a href="/omnibus-diputados" className="hover:text-[#404040] pointer-events-none">Ley Omnibus: Diputados</a>
       </div>
       <div className="flex flex-row justify-center gap-6 mt-4">
         <a href={`whatsapp://send?text=Estado%20de%20las%20temáticas%20del%20mega%20DNU%20y%20la%20Ley%20Ómnibus%20-%20${currentUrl}`} target="_blank" rel="noopener noreferrer">
@@ -176,6 +176,31 @@ export default function Home() {
           />
         ))}
       </div>
+			<footer>
+				<div className="flex flex-row justify-center gap-2 bg-[#38485C] text-white py-4">
+					<span className="text-[0.85rem] font-medium">
+						© 2024 Agorar. Todos los derechos reservados.
+					</span>
+
+					<a
+						href="https://github.com/DanteCastelao/Agorar"
+						className="text-[0.85rem] font-medium ml-2 underline underline-offset-2 flex flex-row items-center gap-1"
+					>
+						<svg
+							className="inline-block w-5 h-5"
+							viewBox="0 0 24 24"
+							stroke-width="2"
+							stroke="currentColor"
+							fill="none"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
+							<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+							<path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+						</svg>
+					</a>
+				</div>
+			</footer>
     </main>
   );
 }

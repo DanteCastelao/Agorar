@@ -6,7 +6,6 @@ import { Vidaloka } from "next/font/google";
 import WhatsappIcon from "./assets/WhatsAppIcon.png";
 import TwitterIcon from "./assets/TwitterIcon.png";
 import FacebookIcon from "./assets/FacebookIcon.png";
-
 import Fuse from "fuse.js";
 import { motion } from "framer-motion";
 
@@ -158,29 +157,6 @@ export default function Home() {
 		const filtered = fuse.search(searchQuery);
 
 		setFilteredArticles(filtered.map((result) => result.item));
-
-		/* const normalizedSearchQuery = searchQuery.normalize("NFD").replace(/[\u0300-\u036f]/g, ""); // Remove diacritics
-		setFilteredArticles(
-			articles.filter((article) => {
-				if (normalizedSearchQuery === "") {
-					return article.category === "dnu"; // Only consider articles of "dnu" category when search query is empty
-				} else {
-					const normalizedTitle = article.name
-						.toLowerCase()
-						.normalize("NFD")
-						.replace(/[\u0300-\u036f]/g, ""); // Remove diacritics
-					const normalizedDescription = article.description
-						.toLowerCase()
-						.normalize("NFD")
-						.replace(/[\u0300-\u036f]/g, ""); // Remove diacritics
-					return (
-						(normalizedTitle.includes(normalizedSearchQuery) ||
-							normalizedDescription.includes(normalizedSearchQuery)) &&
-						article.category === "dnu"
-					);
-				}
-			})
-		); */
 	};
 
 	return (
@@ -200,7 +176,7 @@ export default function Home() {
 					<a href="/" className="text-[#38485C]">
 						DNU
 					</a>
-					<a href="/omnibus-diputados" className="hover:text-[#404040]">
+					<a href="/omnibus-diputados" className="hover:text-[#404040] pointer-events-none">
 						Ley Omnibus: Diputados
 					</a>
 				</div>
