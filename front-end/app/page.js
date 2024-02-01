@@ -15,6 +15,11 @@ export default function Home() {
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredArticles, setFilteredArticles] = useState([]);
   const chartDNURef = useRef(null);
+  const [currentUrl, setCurrentUrl] = useState('');
+
+  useEffect(() => {
+    setCurrentUrl(window.location.href);
+  }, []);
 
   useEffect(() => {
     fetchArticles();
@@ -136,13 +141,13 @@ export default function Home() {
         <a href="/omnibus-diputados" className="hover:text-[#404040]">Ley Omnibus: Diputados</a>
       </div>
       <div className="flex flex-row justify-center gap-6 mt-4">
-        <a href={`whatsapp://send?text=Estado%20de%20las%20temáticas%20del%20mega%20DNU%20y%20la%20Ley%20Ómnibus%20-%20${window.location.href}`} target="_blank" rel="noopener noreferrer">
+        <a href={`whatsapp://send?text=Estado%20de%20las%20temáticas%20del%20mega%20DNU%20y%20la%20Ley%20Ómnibus%20-%20${currentUrl}`} target="_blank" rel="noopener noreferrer">
           <img src={WhatsappIcon.src} alt="Compartir en WhatsApp" />
         </a>
-        <a href={`https://twitter.com/intent/tweet?url=${window.location.href}&text=Estado%20de%20las%20temáticas%20del%20mega%20DNU%20y%20la%20Ley%20Ómnibus`} target="_blank" rel="noopener noreferrer">
+        <a href={`https://twitter.com/intent/tweet?url=${currentUrl}&text=Estado%20de%20las%20temáticas%20del%20mega%20DNU%20y%20la%20Ley%20Ómnibus`} target="_blank" rel="noopener noreferrer">
           <img src={TwitterIcon.src} alt="Compartir en Twitter" />
         </a>
-        <a href={`https://www.facebook.com/sharer/sharer.php?u=${window.location.href}&quote=Estado%20de%20las%20temáticas%20del%20mega%20DNU%20y%20la%20Ley%20Ómnibus`} target="_blank" rel="noopener noreferrer">
+        <a href={`https://www.facebook.com/sharer/sharer.php?u=${currentUrl}&quote=Estado%20de%20las%20temáticas%20del%20mega%20DNU%20y%20la%20Ley%20Ómnibus`} target="_blank" rel="noopener noreferrer">
           <img src={FacebookIcon.src} alt="Compartir en Facebook" />
         </a>
       </div>
