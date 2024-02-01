@@ -57,8 +57,8 @@ export default function Home() {
 		if (searchFilters.length > 0) {
 			filterArticlesByStatus(searchFilters);
 		} else {
-      filterArticlesByCategory("dnu");
-    }
+			filterArticlesByCategory("dnu");
+		}
 	}, [searchFilters]);
 
 	const fetchArticles = async () => {
@@ -248,6 +248,7 @@ export default function Home() {
 				<div className="mx-[10%]">
 					{searchFilters.map((filter, index) => (
 						<div
+							key={index}
 							className={`${filtersColors[filter]} text-white px-3 py-1 rounded-full inline-block mx-2 w-fit`}
 						>
 							<span key={index}>{filter}</span>

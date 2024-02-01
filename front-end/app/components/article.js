@@ -39,21 +39,28 @@ function Article({ title, description, status }) {
 				onClick={modalOpen && (() => setModalOpen(false))}
 			>
 				<motion.div
-					className={`flex flex-col bg-white p-[1.4rem] gap-4 border-[2px] rounded-[5px] ${modalOpen ? "" : "cursor-pointer"}`}
+					className={`flex flex-col bg-white p-[1.4rem] gap-4 border-[2px] rounded-[5px] ${
+						modalOpen ? "" : "cursor-pointer"
+					}`}
 					style={{ borderColor: borderColor, height: "30vh" }}
 					onClick={(e) => {
-            e.stopPropagation();
-            setModalOpen(true);
-          }}
+						e.stopPropagation();
+						setModalOpen(true);
+					}}
 					animate={{ width: modalOpen ? "min(42rem,80vw)" : "auto" }}
 					layoutId={layoutId}
 				>
-					<span className={`font-bold text-[1.35rem] ${modalOpen ? "" : "line-clamp-2"}`} style={{ color: textColor }}>
+					<span
+						className={`font-bold text-[1.35rem] ${modalOpen ? "" : "line-clamp-2"}`}
+						style={{ color: textColor }}
+					>
 						{title}
 					</span>
 					{description && (
 						<span className="font-medium text-[#38485C] text-[0.95rem] overflow-hidden">
-							<span className={`${modalOpen ? "" : "line-clamp-2 md:line-clamp-6"}`}>{description}</span>
+							<span className={`${modalOpen ? "" : "line-clamp-2 md:line-clamp-6"}`}>
+								{description}
+							</span>
 						</span>
 					)}
 					{/* <span className="font-medium text-[#38485C] text-[0.95rem] underline">Leer más</span> */}
