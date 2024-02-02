@@ -42,7 +42,7 @@ function Article({ title, description, status }) {
 					className={`flex flex-col bg-white p-[1.4rem] gap-4 border-[2px] rounded-[5px] ${
 						modalOpen ? "" : "cursor-pointer"
 					}`}
-					style={{ borderColor: borderColor, height: "30vh" }}
+					style={{ borderColor: borderColor, height: modalOpen ? "unset" : "30vh" }}
 					onClick={(e) => {
 						e.stopPropagation();
 						setModalOpen(true);
