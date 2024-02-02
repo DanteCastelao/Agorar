@@ -42,9 +42,7 @@ function Article({ title, description, status }) {
 				/>
 			) : (
 				<motion.div
-					className={`flex flex-col bg-white p-[1.4rem] gap-4 border-[2px] rounded-[5px] ${
-						modalOpen ? "" : "cursor-pointer"
-					}`}
+					className={`flex flex-col bg-white p-[1.4rem] gap-4 border-[2px] rounded-[5px] overflow-hidden cursor-pointer`}
 					style={{ borderColor: borderColor, height: "30vh" }}
 					onClick={(e) => {
 						e.stopPropagation();
