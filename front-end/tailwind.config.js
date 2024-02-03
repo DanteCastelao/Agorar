@@ -14,7 +14,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ['var(--font-inter)'],
-        mono: ['var(--font-vidaloka)'],
+        vidaloka: ['Vidaloka, serif'],
       },
     },
   },

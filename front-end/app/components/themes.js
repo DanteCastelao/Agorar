@@ -171,7 +171,7 @@ const Themes = ({ category }) => {
   return (
     <main className="flex min-h-screen flex-col bg-[#F3F6F9]">
       <div className="flex flex-row px-8 py-4 justify-center">
-        <span className="font-mono text-white text-4xl bg-[#38485C] px-2 py-1">
+        <span className="font-vidaloka text-white text-4xl bg-[#38485C] px-2 py-1">
           Agorar
         </span>
       </div>
