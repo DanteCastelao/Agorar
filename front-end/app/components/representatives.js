@@ -92,8 +92,8 @@ export default function Representatives() {
                 options={party}
                 itemTemplate={representativesItemTemplate}
                 onChange={(e) => options.filterApplyCallback(e.value)}
-                optionLabel="nombre"
                 placeholder="Todos"
+                showClear
                 className="p-column-filter"
                 style={{ minWidth: '14rem' }}
             />
