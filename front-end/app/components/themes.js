@@ -184,7 +184,7 @@ const Themes = ({ category }) => {
         </a>
         <a
           href="/omnibus-diputados"
-          className="hover:text-[#404040] pointer-events-none"
+          className="hover:text-[#404040]"
         >
           Ley Omnibus: Diputados
         </a>
@@ -260,18 +260,18 @@ const Themes = ({ category }) => {
                 </svg>
             </div>
         ))}
-    </div>
-      <div className="grid gap-5 mx-[10%] my-8 grid-cols-[repeat(auto-fill,minmax(min(100%,230px),1fr))]">
-        {filteredArticles.map((article, index) => (
-          <motion.div key={article.name} layoutId={`article-${article.name}`} layout>
-            <Article
-              title={article.name}
-              description={article.description}
-              status={article.status}
-            />
-          </motion.div>
-        ))}
       </div>
+      <div className="grid gap-5 mx-[10%] my-8 grid-cols-[repeat(auto-fill,minmax(min(100%,230px),1fr))]">
+					{filteredArticles.map((article, index) => (
+						<motion.div key={article.name} layoutId={`article-${article.name}`} layout>
+							<Article
+								title={article.name}
+								description={article.description}
+								status={article.status}
+							/>
+						</motion.div>
+					))}
+			</div>
       <footer>
         <div className="flex flex-row justify-center gap-2 bg-[#38485C] text-white py-4">
           <span className="text-[0.85rem] font-medium">

@@ -65,7 +65,6 @@ function Article({ title, description, status }) {
 							<span className={`line-clamp-2 md:line-clamp-6`}>{description}</span>
 						</motion.span>
 					)}
-					{/* <span className="font-medium text-[#38485C] text-[0.95rem] underline">Leer más</span> */}
 				</motion.div>
 			)}
 		</>
