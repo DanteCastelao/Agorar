@@ -6,7 +6,6 @@ export default function Footer() {
                     <span className="text-[0.85rem] font-medium">
                         © 2024 Agorar. Todos los derechos reservados.
                     </span>
-
                     <a
                         href="https://github.com/DanteCastelao/Agorar"
                         className="text-[0.85rem] font-medium ml-2 underline underline-offset-2 flex flex-row items-center gap-1"

@@ -168,6 +168,29 @@ const Themes = ({ category }) => {
 		setFilteredArticles(filtered.map((result) => result.item));
 	};
 
+  useEffect(() => {
+    // Recolecta los nombres de los artículos
+    const articleNames = articles.map(article => article.name);
+    
+    // Genera las etiquetas meta
+    const metaTags = articleNames.map(articleName => {
+        const metaTag = document.createElement('meta');
+        metaTag.setAttribute('name', 'keywords');
+        metaTag.setAttribute('content', articleName);
+        return metaTag;
+    });
+
+    // Agrega las etiquetas meta al head del documento
+    const head = document.querySelector('head');
+    metaTags.forEach(metaTag => head.appendChild(metaTag));
+
+    // Asegúrate de eliminar las etiquetas meta cuando el componente se desmonte
+    return () => {
+        metaTags.forEach(metaTag => head.removeChild(metaTag));
+    };
+}, [articles]);
+
+
   return (
     <main className="flex min-h-screen flex-col bg-[#F3F6F9]">
       <div className="flex flex-row px-8 py-4 justify-center">
