@@ -272,38 +272,6 @@ const Themes = ({ category }) => {
 						</motion.div>
 					))}
 			</div>
-      <footer>
-        <div className="flex flex-row justify-center gap-2 bg-[#38485C] text-white py-4">
-          <span className="text-[0.85rem] font-medium">
-            © 2024 Agorar. Todos los derechos reservados.
-          </span>
-
-          <a
-            href="https://github.com/DanteCastelao/Agorar"
-            className="text-[0.85rem] font-medium ml-2 underline underline-offset-2 flex flex-row items-center gap-1"
-          >
-            <svg
-              className="inline-block w-5 h-5"
-              viewBox="0 0 24 24"
-              stroke-width="2"
-              stroke="currentColor"
-              fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path
-                stroke="none"
-                d="M0 0h24v24H0z"
-                fill="none"
-              />
-              <path
-                d="M9 19c-4.5 1.4-4.5-2.5-6-3m12 6v-3.5c0-1.48 -.274 -2.882 -.777 -4.155m-1.034 -1.805c-.842 -1.804 -2.154 -3.19 -3.689 -4.04m-2.955 -.955c-1.493 -.22 -2.946 -.22 -4.5 0m10.5 5c1.607 -2.033 2.5 -4 2.5 -6.5c0 -6.5 -4 -9.5 -12 -9.5s-12 3 -12 9.5c0 2.5 .893 4.467 2.5 6.5"
-              />
-            </svg>
-            GitHub
-          </a>
-        </div>
-      </footer>
     </main>
   );
 };
