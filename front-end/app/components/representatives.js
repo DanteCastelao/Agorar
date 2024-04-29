@@ -28,7 +28,7 @@ export default function Representatives() {
 
     const fetchRepresentatives = async () => {
         try {
-            const response = await fetch("https://agorar-fb7184e25907.herokuapp.com/representatives");
+            const response = await fetch("https://agorar-back-end.onrender.com/representatives");
             if (!response.ok) {
 				throw new Error("Failed to fetch representatives");
 			}

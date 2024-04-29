@@ -57,7 +57,7 @@ const Themes = ({ category }) => {
 
 	const fetchArticles = async () => {
 		try {
-			const response = await fetch("https://agorar-fb7184e25907.herokuapp.com/articles");
+			const response = await fetch("https://agorar-back-end.onrender.com/articles");
 			if (!response.ok) {
 				throw new Error("Failed to fetch articles");
 			}
